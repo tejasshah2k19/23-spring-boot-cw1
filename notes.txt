@@ -1,0 +1,51 @@
+@Controller
+public class UserController {
+
+	
+	//create a method that is responsible to open signup jsp file 
+	//in controller class method name we can take as per feature 
+	// like for login -> login() , for signup -> signup() 
+	// in controller your method must return String 
+	// in controller your method must mark as public 
+	
+	public String signup() {
+		return "Signup"; // in the return we need pass jsp name that  we want to open 
+	}
+}
+
+we will put our jsp in side views folder 
+views folder we will create inside WEB-INF
+WEB-INF we will create inside webapp
+webapp we will create inside src/main folder 
+
+
+how server knows what to load ? 
+for that we need to create url 
+same as servlet url 
+
+here we don't have multiple servlet here we have methods instead of servlet 
+so we will map our method with url pattern 
+
+
+by default server search jsp inside webapp folder , but now  we added jsp inside 
+WEB-INF/views , so we need to inform configuration and inform server that search
+inside WEB-INF/views 
+
+
+
+-------------------------------------------------------------------
+
+how to read data from form?
+using bean 
+
+how to send data from controller to jsp?
+Model model 
+--------------------------
+
+validation 
+1) hibernate validator .jar 
+
+
+
+
+
