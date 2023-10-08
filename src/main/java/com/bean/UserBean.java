@@ -1,11 +1,11 @@
 package com.bean;
 
-import org.hibernate.validator.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 public class UserBean {
 
-	@NotBlank
-	private String firstName;
+	@NotBlank(message = "Please Enter FirstName")
+ 	private String firstName;
 
 	@NotBlank
 	private String email;
