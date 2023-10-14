@@ -1,5 +1,6 @@
 package com.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,10 +9,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bean.UserBean;
+import com.dao.UserDao;
 
 @Controller
 public class UserController {
 
+	@Autowired 
+	UserDao userDao;
+	
 	// create a method that is responsible to open signup jsp file
 	// in controller class method name we can take as per feature
 	// like for login -> login() , for signup -> signup()
@@ -43,6 +48,8 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "Signup";// error found re open Signup.jsp
 		} else {
+			//db insert 
+			userDao.addUser(user);
 			System.out.println(user.getFirstName());
 			System.out.println(user.getEmail());
 //    	model.addAttribute("firstName",user.getFirstName());

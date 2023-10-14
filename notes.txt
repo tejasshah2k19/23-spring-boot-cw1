@@ -43,7 +43,52 @@ Model model
 --------------------------
 
 validation 
-1) hibernate validator .jar 
+1)spring boot starter validator 
+-----------------------------------------
+
+
+jee ->  
+	1) mysql-connector.jar 
+	2) DbConnection.java -> logic 
+	
+	
+spring ->
+	1) mysql-connector.jar -> pom.xml {mysql driver} 
+	2) spring-jdbc jar -> pom.xml     {spring data jdbc } 
+	3) application.properties -> username url password 
+
+
+
+
+#dbconnection
+spring.datasource.url=jdbc:mysql://localhost:3306/spring23
+spring.datasource.username=root 
+spring.datasource.password=root
+
+spring23 -> we need to create spring23 database 
+
+------------------------------------------------
+
+
+create database spring23;
+
+use spring23;
+
+create table users (userId integer primary key auto_increment,firstName varchar(30),email varchar(30),password varchar(30)  );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
