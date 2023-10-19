@@ -77,7 +77,33 @@ use spring23;
 create table users (userId integer primary key auto_increment,firstName varchar(30),email varchar(30),password varchar(30)  );
 
 
+---------------------------
+delete
 
+	soft delete -> 
+	hard delete 
+
+
+
+users 
+userId 	FirstName	Email 	password isDeleted  
+1	x		x	x1		0{false} 
+2	y		y	y1		0	
+3	z		z	z1 		0
+
+user want to delete user with userId 1 
+
+users 
+userId 	FirstName	Email 	password isDeleted  
+1	x		x	x1		1{true} 
+2	y		y	y1		0	
+3	z		z	z1 		0
+
+
+
+deleteuser?userId=2 
+
+? is known as query string 
 
 
 
