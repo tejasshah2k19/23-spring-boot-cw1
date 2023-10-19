@@ -30,4 +30,14 @@ public class UserDao {
 	public void deleteUserSoft(Integer userId) {
 		stmt.update("update users set deleted = 1 where userId = ?",userId);
 	}
+
+	public void deleteUser(Integer userId) {
+		stmt.update("delete from users where userId = ?",userId);//hard delete
+	}
+
+	public List<UserBean> getAllUsers2() {
+		// TODO Auto-generated method stub
+		return stmt.query("select * from users where deleted = 1", new BeanPropertyRowMapper<UserBean>(UserBean.class));
+
+	}
 }

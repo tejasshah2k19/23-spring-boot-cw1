@@ -67,6 +67,13 @@ public class UserController {
 		model.addAttribute("users",users);
 		return "ListUser";
 	}
+
+	@GetMapping("/listusers2")
+	public String listUsers2(Model model) {
+		List<UserBean> users = userDao.getAllUsers2();
+		model.addAttribute("users",users);
+		return "ListUser";
+	}
 	
 	
 	//query string read -> @RequestParam 
@@ -75,6 +82,14 @@ public class UserController {
 	
 		//soft delete 
 		userDao.deleteUserSoft(userId);
+		return "redirect:/listusers";//redirecto listusers -> this url not a jsp 
+	}
+
+	@GetMapping("/deleteuser2")
+	public String deleteUser2(@RequestParam("userId") Integer userId) {
+	
+		//soft delete 
+		userDao.deleteUser(userId);
 		return "redirect:/listusers";//redirecto listusers -> this url not a jsp 
 	}
 

@@ -11,9 +11,14 @@
 </head>
 <body>
 
+<a href="listusers2">Deleted Users</a>
+<br><br>
 <c:forEach items="${users}" var="u">
 
-${u.userId } |	${u.firstName } | <a href="deleteuser?userId=${u.userId}">Delete</a><br>
+${u.userId } |	${u.firstName } | <a href="deleteuser?userId=${u.userId}">Delete</a>
+|
+<a href="deleteuser2?userId=${u.userId}">Delete2</a>
+<br>
 </c:forEach>
 
 
