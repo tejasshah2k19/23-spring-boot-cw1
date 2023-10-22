@@ -16,28 +16,36 @@ public class UserDao {
 	JdbcTemplate stmt; // spring -> execute query
 
 	public void addUser(UserBean user) {
-		stmt.update("insert into users (firstName,email,password,deleted) values (?,?,?,0)", user.getFirstName(), user.getEmail(),
-				user.getPassword());
+		stmt.update("insert into users (firstName,email,password,deleted) values (?,?,?,0)", user.getFirstName(),
+				user.getEmail(), user.getPassword());
 		// executeUpdate() -> update()
 		// executeQuery() -> query()
 	}
 
 	public List<UserBean> getAllUsers() {
-		return stmt.query("select * from users where deleted != 1", new BeanPropertyRowMapper<UserBean>(UserBean.class));
+		return stmt.query("select * from users where deleted != 1",
+				new BeanPropertyRowMapper<UserBean>(UserBean.class));
 	}
 
-	//soft delete 
+	// soft delete
 	public void deleteUserSoft(Integer userId) {
-		stmt.update("update users set deleted = 1 where userId = ?",userId);
+		stmt.update("update users set deleted = 1 where userId = ?", userId);
 	}
 
 	public void deleteUser(Integer userId) {
-		stmt.update("delete from users where userId = ?",userId);//hard delete
+		stmt.update("delete from users where userId = ?", userId);// hard delete
 	}
 
 	public List<UserBean> getAllUsers2() {
 		// TODO Auto-generated method stub
 		return stmt.query("select * from users where deleted = 1", new BeanPropertyRowMapper<UserBean>(UserBean.class));
 
+	}
+
+	public List<UserBean> searchUserByFirstName(String firstName) {
+		// TODO Auto-generated method stub
+		return stmt.query("select * from users where deleted != 1 and firstName like ? ",
+				new BeanPropertyRowMapper<UserBean>(UserBean.class),new Object[] {firstName+"%"});
+						
 	}
 }

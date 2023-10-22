@@ -106,8 +106,24 @@ deleteuser?userId=2
 ? is known as query string 
 
 
+-------------------------------
+search 
 
-
+	we need to create 2 url 
+	
+	1) Getmapping -> this will open jsp 
+	2) Postmapping -> this will read jsp data and perform process 
+	
+	1) jsp that read input 
+	2) jsp that display all user who's first name match or we can reuse existing list users jsp 
+	
+	select * from users where deleted != 1 and firstname like 'ra%' ; 
+	
+	%  is wild card character 
+	ra% -> all that start from ra 
+	
+	
+	
 
 
 

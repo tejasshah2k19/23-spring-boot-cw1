@@ -92,7 +92,19 @@ public class UserController {
 		userDao.deleteUser(userId);
 		return "redirect:/listusers";//redirecto listusers -> this url not a jsp 
 	}
+	
+	//below url/method will open jsp 
+	@GetMapping("/search")
+	public String search() {
+		return "Search";
+	}
 
+	@PostMapping("/searchuser")
+	public String searchUser(@RequestParam("firstName") String firstName ,Model model) {
+	List<UserBean> users =	userDao.searchUserByFirstName(firstName);
+	model.addAttribute("users",users);
+		return "SearchList";
+	}
 }
 
 
