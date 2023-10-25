@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bean.UserBean;
 import com.dao.UserDao;
@@ -105,6 +106,20 @@ public class UserController {
 	model.addAttribute("users",users);
 		return "SearchList";
 	}
+	
+	@GetMapping("/newprofile")
+	public String newProfile() {
+		
+		return "NewProfile";
+	}
+
+	@PostMapping("/saveprofile")
+	public String saveProfile(@RequestParam("profile") MultipartFile file) {
+		System.out.println(file.getOriginalFilename());// print name of the file
+		
+		return "NewProfile";
+	}
+
 }
 
 

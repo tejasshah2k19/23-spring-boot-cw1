@@ -123,8 +123,42 @@ search
 	ra% -> all that start from ra 
 	
 	
+----------------------------
+
+
+1) jsp -> Profile -> input type file 
+
+2) saveprofile url -> file upload 
+		2.1 ) apache commons file-upload , io 
+	
+	
+	
+	
+1) add jar file in project - maven 
+  <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.5</version>
+</dependency>
+  
+  
+2)  NewProfile.jsp 
+     <h2>Upload Profile Pic</h2>
+<form action="saveprofile" method="post" enctype="multipart/form-data">
+
+Profile : <input type="file" name="profile"/>
+</form>
+
+
+3)  saveprofile as postmapping 
 	
 
+
+ 
+ 
+ 
+  
 
 
 
