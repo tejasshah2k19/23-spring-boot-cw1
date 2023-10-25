@@ -1,7 +1,9 @@
 package com.controller;
 
+import java.io.File;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -116,7 +118,17 @@ public class UserController {
 	@PostMapping("/saveprofile")
 	public String saveProfile(@RequestParam("profile") MultipartFile file) {
 		System.out.println(file.getOriginalFilename());// print name of the file
+
+		try {
+		String filePath = "E:\\Tejas Shah\\boot\\spring-web-cw1\\src\\main\\webapp\\profile";
+		File f2 = new File(filePath,file.getOriginalFilename());
 		
+		byte[] b = file.getBytes();
+		FileUtils.writeByteArrayToFile(f2, b);
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		return "NewProfile";
 	}
 
