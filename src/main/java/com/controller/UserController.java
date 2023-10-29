@@ -116,7 +116,7 @@ public class UserController {
 	}
 
 	@PostMapping("/saveprofile")
-	public String saveProfile(@RequestParam("profile") MultipartFile file) {
+	public String saveProfile(@RequestParam("profile") MultipartFile file,Model model) {
 		System.out.println(file.getOriginalFilename());// print name of the file
 
 		try {
@@ -124,8 +124,8 @@ public class UserController {
 		File f2 = new File(filePath,file.getOriginalFilename());
 		
 		byte[] b = file.getBytes();
-		FileUtils.writeByteArrayToFile(f2, b);
-		
+		FileUtils.writeByteArrayToFile(f2, b);//copy -> user -> server 
+		model.addAttribute("imgPath","profile\\"+file.getOriginalFilename());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

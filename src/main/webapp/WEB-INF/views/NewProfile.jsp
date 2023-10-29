@@ -12,6 +12,8 @@
 
 Profile : <input type="file" name="profile"/><br><br>
 <input type="submit" value="Upload Profile"/>
-</form>
+</form><br>
+<br>
+<img src="${imgPath}"/>
 </body>
 </html>

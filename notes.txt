@@ -154,6 +154,57 @@ Profile : <input type="file" name="profile"/>
 3)  saveprofile as postmapping 
 	
 
+---------------------------------------------
+
+AddEmp.jsp 
+		FirstName :  
+		Email  : 
+		Password : 
+		Profile : 
+					submit -> controller 		
+		
+EmployeeBean 
+	String firstName
+	String email
+	String password;
+	MultiPartFile profile; 
+
+
+
+saveemployee -> url 
+
+
+saveEmployee(EmployeeBean employeeBean)
+	profile -> copy 
+	fn em pwd path{profile/a.jpg} -> db save 
+	login ->redirect 
+	
+
+Login.jsp -> email password -> submit -> 
+			success -> Home.jsp and display profile 
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
  
